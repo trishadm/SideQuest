@@ -163,6 +163,10 @@ CLOUDINARY_API_SECRET=
 
 ![alt text](image-2.png)
 
+### Chain Graph
+
+<img width="1917" height="907" alt="image" src="https://github.com/user-attachments/assets/14977a07-7d80-4306-af1e-439407c8821d" />
+
 ---
 
 ## 🧠 Future Improvements
