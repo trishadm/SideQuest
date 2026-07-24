@@ -145,15 +145,19 @@ CLOUDINARY_API_SECRET=
 
 ### Dashboard
 
+![alt text](image-3.png)
 
+### Matches
+
+![alt text](image-4.png)
 
 ### Chat
 
-
+![alt text](image-5.png)
 
 ### Profile
 
-
+![alt text](image-6.png)
 
 ### Login 
 

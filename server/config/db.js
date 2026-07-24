@@ -16,7 +16,7 @@ let isConnected = false;
 
 const connectDB = async () => {
   const mongoUri = process.env.MONGO_URI || 'mongodb+srv://trishadm02_db_user:trisha02082006@cluster0.7znimvu.mongodb.net/sidequest?retryWrites=true&w=majority&appName=Cluster0';
-  
+
   console.log(`🔌 Initializing Database Connection...`);
   console.log(`📌 MONGO_URI Target: ${mongoUri.replace(/:([^@]+)@/, ':****@')}`);
 
@@ -51,17 +51,23 @@ const connectDB = async () => {
       console.log(`🚀 Attempting MongoMemoryServer local instance as fallback for dev testing...`);
       const { MongoMemoryServer } = require('mongodb-memory-server');
       const fs = require('fs');
-      
-      const instanceDbPath = path.join(__dirname, '../.mongo_cache/db_' + Date.now());
+
+      const instanceDbPath = path.join(__dirname, '../.mongo_cache/db_instance');
       if (!fs.existsSync(instanceDbPath)) {
         fs.mkdirSync(instanceDbPath, { recursive: true });
       }
 
-      const mongoServer = await MongoMemoryServer.create({
-        instance: { dbPath: instanceDbPath }
+      if (!global.__MONGO_SERVER__) {
+        global.__MONGO_SERVER__ = await MongoMemoryServer.create({
+          instance: { dbPath: instanceDbPath }
+        });
+      }
+
+      const fallbackUri = global.__MONGO_SERVER__.getUri();
+      const conn = await mongoose.connect(fallbackUri, {
+        serverSelectionTimeoutMS: 10000,
+        heartbeatFrequencyMS: 2000
       });
-      const fallbackUri = mongoServer.getUri();
-      const conn = await mongoose.connect(fallbackUri);
       isConnected = true;
       console.log(`⚡ Fallback MongoDB Connected (In-Memory): ${conn.connection.host}`);
 
