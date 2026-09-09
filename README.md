@@ -120,3 +120,32 @@ Chat & Schedule Sessions
 Teach + Learn
       ↓
 Review & Earn XP
+
+## 🏗️ Architecture
+
+                         ┌──────────────────────┐
+                         │        User          │
+                         │      Browser         │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │       Vercel         │
+                         │   React Frontend     │
+                         │   Vite + Tailwind    │
+                         └──────────┬───────────┘
+                                    │
+                         REST API / Socket.io
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │       Render         │
+                         │   Node + Express     │
+                         │      Backend         │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │    MongoDB Atlas     │
+                         │      Database        │
+                         └──────────────────────┘
