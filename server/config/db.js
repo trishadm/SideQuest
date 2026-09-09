@@ -1,23 +1,17 @@
 const mongoose = require('mongoose');
-const dns = require('dns');
 const path = require('path');
 
-// Set public DNS resolvers to ensure Node resolves MongoDB Atlas SRV records correctly
-try {
-  dns.setServers(['8.8.8.8', '1.1.1.1', '8.8.4.4']);
-} catch (e) {
-  console.warn('⚠️ Unable to set custom DNS servers:', e.message);
-}
-
-// Redirect MongoMemoryServer download directory to E: drive to prevent C: drive ENOSPC disk full errors
+// Redirect MongoMemoryServer download directory to cache folder for local development
 process.env.MONGOMS_DOWNLOAD_DIR = path.join(__dirname, '../.mongo_cache');
 
 let isConnected = false;
 
 const connectDB = async () => {
+  const isProduction = process.env.NODE_ENV === 'production' || !!process.env.RENDER;
   const mongoUri = process.env.MONGO_URI || 'mongodb+srv://trishadm02_db_user:trisha02082006@cluster0.7znimvu.mongodb.net/sidequest?retryWrites=true&w=majority&appName=Cluster0';
 
   console.log(`🔌 Initializing Database Connection...`);
+  console.log(`📌 Target Environment: ${isProduction ? 'PRODUCTION' : 'DEVELOPMENT'}`);
   console.log(`📌 MONGO_URI Target: ${mongoUri.replace(/:([^@]+)@/, ':****@')}`);
 
   try {
@@ -46,9 +40,15 @@ const connectDB = async () => {
     }
     console.error(`💡 Common Resolution: Ensure your current IP address (or 0.0.0.0/0) is whitelisted in MongoDB Atlas Security -> Network Access.`);
 
-    // If Atlas connection fails, attempt MongoMemoryServer so application stays functional
+    if (isProduction) {
+      console.error(`🚨 PRODUCTION DATABASE FAILURE: Fallback MongoMemoryServer is disabled in production.`);
+      console.error(`👉 Please verify MONGO_URI on your Render Dashboard and ensure MongoDB Atlas IP Whitelist allows 0.0.0.0/0.`);
+      return;
+    }
+
+    // In local development mode ONLY, attempt MongoMemoryServer fallback for offline testing
     try {
-      console.log(`🚀 Attempting MongoMemoryServer local instance as fallback for dev testing...`);
+      console.log(`🚀 [DEV ONLY] Attempting MongoMemoryServer local instance as fallback for dev testing...`);
       const { MongoMemoryServer } = require('mongodb-memory-server');
       const fs = require('fs');
 
@@ -69,7 +69,7 @@ const connectDB = async () => {
         heartbeatFrequencyMS: 2000
       });
       isConnected = true;
-      console.log(`⚡ Fallback MongoDB Connected (In-Memory): ${conn.connection.host}`);
+      console.log(`⚡ Fallback MongoDB Connected (In-Memory Dev): ${conn.connection.host}`);
 
       const seedData = require('../utils/seedData');
       await seedData({ exitProcess: false, force: true });

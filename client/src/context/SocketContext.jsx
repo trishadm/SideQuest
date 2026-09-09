@@ -17,8 +17,17 @@ export const SocketProvider = ({ children }) => {
       return;
     }
 
-    const socketUrl = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
-    const newSocket = io(socketUrl);
+    const getSocketUrl = () => {
+      if (import.meta.env.VITE_SOCKET_URL) {
+        return import.meta.env.VITE_SOCKET_URL.replace(/\/+$/, '');
+      }
+      if (import.meta.env.VITE_API_URL) {
+        return import.meta.env.VITE_API_URL.replace(/\/+$/, '').replace(/\/api\/?$/, '');
+      }
+      return 'http://localhost:5000';
+    };
+
+    const newSocket = io(getSocketUrl());
 
     newSocket.on('connect', () => {
       console.log('⚡ Connected to Socket.io server');
