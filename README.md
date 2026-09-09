@@ -122,8 +122,25 @@ Teach + Learn
 Review & Earn XP
 ```
 
-## 🏗️ Architecture
+## 🛠️ Tech Stack
+
+| Layer | Technologies |
+| --- | --- |
+| **Frontend** | React.js, Vite, Tailwind CSS, React Router, Axios |
+| **UI & Icons** | Lucide React |
+| **State Management** | React Context API |
+| **Backend** | Node.js, Express.js |
+| **Authentication** | JSON Web Tokens (JWT), Bcrypt.js |
+| **Real-Time Communication** | Socket.io |
+| **Database** | MongoDB Atlas, Mongoose |
+| **File/Image Handling** | Multer, Cloudinary |
+| **Deployment** | Vercel, Render |
+
 ---
+
+## 🏗️ Architecture
+
+```text
                          ┌──────────────────────┐
                          │        User          │
                          │      Browser         │
@@ -150,17 +167,3 @@ Review & Earn XP
                          │    MongoDB Atlas     │
                          │      Database        │
                          └──────────────────────┘
-
-
-## 🛠️ Tech Stack
-
-```
-Frontend	            React.js, Vite, Tailwind CSS, React Router, Axios
-UI & Icons	            Lucide React
-State Management	      React Context API
-Backend	            Node.js, Express.js
-Authentication	      JSON Web Tokens (JWT), Bcrypt.js
-Real-Time Communication	Socket.io
-Database	            MongoDB Atlas, Mongoose
-File/Image Handling	Multer, Cloudinary
-Deployment	            Vercel, Render
