@@ -64,10 +64,10 @@ export default function SwapRequestsPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       
       <div>
-        <h1 className="heading-font text-3xl font-black text-pink-950 flex items-center gap-2.5">
-          <ArrowLeftRight className="w-7 h-7 text-pink-600" /> Skill Swap Requests
+        <h1 className="heading-font text-3xl font-black text-pink-950 dark:text-white flex items-center gap-2.5">
+          <ArrowLeftRight className="w-7 h-7 text-pink-600 dark:text-pink-400" /> Skill Swap Requests
         </h1>
-        <p className="text-xs text-purple-800 font-medium mt-1">
+        <p className="text-xs text-purple-800 dark:text-slate-300 font-medium mt-1">
           Manage incoming proposals, pending outgoing requests, and active swap commitments.
         </p>
       </div>
@@ -125,43 +125,43 @@ export default function SwapRequestsPage() {
                 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <img src={partner?.avatar} className="w-12 h-12 rounded-2xl object-cover border border-purple-200" alt="" />
+                    <img src={partner?.avatar} className="w-12 h-12 rounded-2xl object-cover border border-purple-200 dark:border-purple-800" alt="" />
                     <div>
-                      <h4 className="font-extrabold text-sm text-pink-950">{partner?.name}</h4>
-                      <span className="text-xs text-pink-600 font-bold">@{partner?.username}</span>
+                      <h4 className="font-extrabold text-sm text-pink-950 dark:text-white">{partner?.name}</h4>
+                      <span className="text-xs text-pink-600 dark:text-pink-400 font-bold">@{partner?.username}</span>
                     </div>
                   </div>
 
                   <span className={`px-3 py-1 rounded-full text-xs font-bold ${
                     req.status === 'Accepted' 
-                      ? 'bg-pink-100 text-pink-700 border border-pink-300'
+                      ? 'bg-pink-100 dark:bg-pink-950/60 text-pink-700 dark:text-pink-300 border border-pink-300 dark:border-pink-800'
                       : req.status === 'Pending'
-                      ? 'bg-amber-100 text-amber-700 border border-amber-300'
-                      : 'bg-rose-100 text-rose-700 border border-rose-300'
+                      ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-800'
+                      : 'bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-300 dark:border-rose-800'
                   }`}>
                     {req.status}
                   </span>
                 </div>
 
                 {/* Exchange Pair Pill */}
-                <div className="p-3.5 rounded-2xl glass-panel border border-pink-200/60 grid grid-cols-2 gap-3 text-xs">
+                <div className="p-3.5 rounded-2xl glass-panel border border-pink-200/60 dark:border-pink-900/40 grid grid-cols-2 gap-3 text-xs">
                   <div>
-                    <span className="text-[10px] text-purple-700 uppercase font-bold tracking-wider block mb-0.5">They Teach:</span>
-                    <strong className="text-pink-600 font-extrabold">{req.requestedSkill}</strong>
+                    <span className="text-[10px] text-purple-700 dark:text-purple-300 uppercase font-bold tracking-wider block mb-0.5">They Teach:</span>
+                    <strong className="text-pink-600 dark:text-pink-400 font-extrabold">{req.requestedSkill}</strong>
                   </div>
                   <div>
-                    <span className="text-[10px] text-purple-700 uppercase font-bold tracking-wider block mb-0.5">You Teach:</span>
-                    <strong className="text-purple-700 font-extrabold">{req.offeredSkill}</strong>
+                    <span className="text-[10px] text-purple-700 dark:text-purple-300 uppercase font-bold tracking-wider block mb-0.5">You Teach:</span>
+                    <strong className="text-purple-700 dark:text-purple-300 font-extrabold">{req.offeredSkill}</strong>
                   </div>
                 </div>
 
                 {/* Message */}
-                <p className="text-xs text-purple-950 italic glass-panel p-3 rounded-xl border border-pink-200/60">
+                <p className="text-xs text-purple-950 dark:text-slate-200 italic glass-panel p-3 rounded-xl border border-pink-200/60 dark:border-pink-900/40">
                   "{req.message}"
                 </p>
 
                 {/* Availability & Duration */}
-                <div className="flex items-center gap-4 text-xs text-purple-900 font-medium">
+                <div className="flex items-center gap-4 text-xs text-purple-900 dark:text-slate-300 font-medium">
                   <span className="flex items-center gap-1">
                     <Calendar className="w-3.5 h-3.5 text-pink-500" /> {req.availability}
                   </span>
@@ -175,7 +175,7 @@ export default function SwapRequestsPage() {
                   <div className="flex items-center gap-3 pt-2">
                     <button
                       onClick={() => handleRespond(req._id, 'Rejected')}
-                      className="flex-1 py-2.5 rounded-xl border border-rose-300 text-rose-600 hover:bg-rose-50 text-xs font-extrabold flex items-center justify-center gap-1 transition-colors"
+                      className="flex-1 py-2.5 rounded-xl border border-rose-300 dark:border-rose-800 text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-xs font-extrabold flex items-center justify-center gap-1 transition-colors"
                     >
                       <X className="w-4 h-4" /> Decline
                     </button>
@@ -203,10 +203,10 @@ export default function SwapRequestsPage() {
           })}
         </div>
       ) : (
-        <div className="glass-panel p-12 rounded-3xl text-center border border-pink-200 max-w-md mx-auto">
+        <div className="glass-panel p-12 rounded-3xl text-center border border-pink-200 dark:border-pink-900/40 max-w-md mx-auto">
           <ArrowLeftRight className="w-10 h-10 text-pink-400 mx-auto mb-3 opacity-60" />
-          <h3 className="font-extrabold text-base text-pink-950">No Requests in this Tab</h3>
-          <p className="text-xs text-purple-700 mt-1">Explore smart matches and send swap requests to connect!</p>
+          <h3 className="font-extrabold text-base text-pink-950 dark:text-white">No Requests in this Tab</h3>
+          <p className="text-xs text-purple-700 dark:text-slate-300 mt-1">Explore smart matches and send swap requests to connect!</p>
         </div>
       )}
 

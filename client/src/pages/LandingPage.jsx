@@ -40,9 +40,9 @@ export default function LandingPage() {
             <span>Zero Payment • Pure Peer-to-Peer Skill Exchange</span>
           </div>
 
-          <h1 className="heading-font text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight">
+          <h1 className="heading-font text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-pink-950 dark:text-white max-w-4xl mx-auto leading-tight">
             Teach What You Know.<br />
-            <span className="bg-gradient-to-r from-indigo-400 via-violet-300 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-violet-300 dark:to-cyan-400 bg-clip-text text-transparent">
               Learn What You Love.
             </span>
           </h1>

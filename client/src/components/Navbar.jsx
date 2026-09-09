@@ -15,7 +15,6 @@ import {
   User,
   LogOut,
   ShieldCheck,
-  Share2,
   Menu,
   X,
   Sun,
@@ -62,8 +61,7 @@ export default function Navbar() {
     { name: 'Matches', path: '/discover', icon: Sparkles },
     { name: 'Swaps', path: '/swaps', icon: ArrowLeftRight },
     { name: 'Chat', path: '/chat', icon: MessageSquare },
-    { name: 'Sessions', path: '/sessions', icon: BookOpen },
-    { name: 'Chain Graph', path: '/chains', icon: Share2 }
+    { name: 'Sessions', path: '/sessions', icon: BookOpen }
   ];
 
   if (user && user.role === 'admin') {

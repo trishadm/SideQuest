@@ -13,7 +13,6 @@ import SwapRequestsPage from './pages/SwapRequestsPage';
 import ChatPage from './pages/ChatPage';
 import SessionsPage from './pages/SessionsPage';
 import AdminPage from './pages/AdminPage';
-import GraphChainPage from './pages/GraphChainPage';
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -46,7 +45,6 @@ export default function App() {
           <Route path="/swaps" element={<ProtectedRoute><SwapRequestsPage /></ProtectedRoute>} />
           <Route path="/chat" element={<ProtectedRoute><ChatPage /></ProtectedRoute>} />
           <Route path="/sessions" element={<ProtectedRoute><SessionsPage /></ProtectedRoute>} />
-          <Route path="/chains" element={<ProtectedRoute><GraphChainPage /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminRoute><AdminPage /></AdminRoute>} />
 
           <Route path="*" element={<Navigate to="/" replace />} />

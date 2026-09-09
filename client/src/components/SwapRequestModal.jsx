@@ -43,25 +43,25 @@ export default function SwapRequestModal({ match, onClose, onSuccess }) {
   if (!candidate) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
-      <div className="glass-panel rounded-3xl max-w-lg w-full p-6 border border-slate-700 shadow-2xl relative">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto animate-fade-in">
+      <div className="glass-panel rounded-3xl max-w-lg w-full p-6 border border-slate-700 shadow-2xl relative my-auto max-h-[90vh] overflow-y-auto">
 
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-xl bg-slate-900 border border-slate-800"
+          className="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-xl bg-slate-900 border border-slate-800 z-10"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Header */}
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-12 h-12 rounded-2xl bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center">
+        <div className="flex items-center gap-3 mb-6 pr-8">
+          <div className="w-12 h-12 rounded-2xl bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center shrink-0">
             <ArrowLeftRight className="w-6 h-6 text-indigo-400" />
           </div>
           <div>
-            <h3 className="font-extrabold text-lg text-white">Send Skill Swap Request</h3>
-            <p className="text-xs text-slate-400">Trading skills with <strong className="text-indigo-300">{candidate.name}</strong></p>
+            <h3 className="font-extrabold text-lg text-white dark:text-white">Send Skill Swap Request</h3>
+            <p className="text-xs text-slate-300 dark:text-slate-400">Trading skills with <strong className="text-indigo-400 dark:text-indigo-300">{candidate.name}</strong></p>
           </div>
         </div>
 
