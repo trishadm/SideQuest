@@ -1,194 +1,122 @@
-# 🚀 SideQuest – Skill Exchange Platform
+# SideQuest
 
-SideQuest is a full-stack MERN web application that enables people to exchange skills instead of money. Users can teach what they know and learn what they don't by connecting with compatible learners based on their skills, interests, and proficiency levels.
+### Skill Exchange Platform
 
----
+SideQuest is a full-stack web application that lets people exchange skills without exchanging money.
 
-## 🌟 Features
+The idea is simple:
 
-- 🔐 Secure User Authentication (JWT)
-- 👤 User Profiles with Multiple Skills
-- 📊 Skill Proficiency Levels
-- 🤝 Intelligent Skill Matching
-- 💬 Real-time Chat (Socket.io)
-- 📅 Learning Session Scheduling
-- ⭐ Reviews & Ratings
-- 🏆 Gamification System (XP & Badges)
-- 🔔 Real-time Notifications
-- 👨‍💼 Admin Dashboard
-- 🌐 Responsive UI
+> **Teach What You Know. Learn What You Love.**
+
+Users create profiles with the skills they can teach and the skills they want to learn. SideQuest helps them discover compatible people based on skills, proficiency, availability, language, and location.
 
 ---
 
-## 🛠 Tech Stack
+## ✨ Features
 
-### Frontend
-- React.js
-- Vite
-- Tailwind CSS
-- Axios
-- Context API
+### 🎯 Smart Skill Matching
 
-### Backend
-- Node.js
-- Express.js
-- JWT Authentication
-- Socket.io
-- Bcrypt
+Discover people whose skills complement your own and explore compatibility scores between users.
 
-### Database
-- MongoDB Atlas
-- Mongoose
+The matching system considers factors such as:
 
-### Deployment
-- Vercel (Frontend)
-- Render (Backend)
+- Skills you can teach
+- Skills you want to learn
+- Skill proficiency
+- Availability
+- Location
+- Spoken languages
 
 ---
 
-## 📂 Project Structure
+### 🔄 Skill Exchange
 
-```
-SideQuest/
-│
-├── client/                 # React Frontend
-│   ├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-│
-├── server/                 # Express Backend
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── services/
-│   └── config/
-│
-├── README.md
-└── package.json
-```
+Send skill-swap requests to other users and propose an exchange based on what you can teach and what you want to learn.
+
+Users can:
+
+- Browse potential matches
+- View their skills
+- View desired skills
+- Send swap requests
+- Accept or manage requests
+- Track active exchanges
 
 ---
 
-## ⚡ Installation
+### 👤 User Profiles
 
-Clone the repository
+Create a profile containing:
 
-```bash
-git clone https://github.com/trishadm/SideQuest.git
-```
-
-Go into the project
-
-```bash
-cd SideQuest
-```
-
-### Install Frontend
-
-```bash
-cd client
-npm install
-```
-
-### Install Backend
-
-```bash
-cd ../server
-npm install
-```
+- Name
+- Username
+- Location
+- Short bio
+- Skills you can teach
+- Skills you want to learn
+- Skill proficiency levels
+- Experience
+- Availability
+- Spoken languages
+- Portfolio information
 
 ---
 
-## ▶ Running the Project
+### 💬 Real-Time Chat
 
-### Backend
-
-```bash
-cd server
-npm run dev
-```
-
-### Frontend
-
-```bash
-cd client
-npm run dev
-```
+Communicate with other users through real-time messaging powered by Socket.io.
 
 ---
 
-## 🔑 Environment Variables
+### 📅 Learning Sessions
 
-Create a `.env` file inside the `server` directory.
-
-```
-PORT=
-MONGO_URI=
-JWT_SECRET=
-CLIENT_URL=
-CLOUDINARY_CLOUD_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-```
+Manage skill-exchange sessions and keep track of learning commitments.
 
 ---
 
-## 📸 Screenshots
+### ⭐ Reviews & Ratings
 
-### Landing Page
-
-![alt text](image.png)
-
-![alt text](image-1.png)
-
-### Dashboard
-
-![alt text](image-3.png)
-
-### Matches
-
-![alt text](image-4.png)
-
-### Chat
-
-![alt text](image-5.png)
-
-### Profile
-
-![alt text](image-6.png)
-
-### Login 
-
-![alt text](image-2.png)
-
-### Chain Graph
-
-<img width="1917" height="907" alt="image" src="https://github.com/user-attachments/assets/14977a07-7d80-4306-af1e-439407c8821d" />
+Rate completed skill exchanges and build reputation within the SideQuest community.
 
 ---
 
-## 🧠 Future Improvements
+### 🏆 Gamification
 
-- AI-powered mentor recommendations
-- Video calling
-- Skill certificates
-- Learning progress analytics
-- Mobile application
-- Calendar synchronization
-- Email notifications
+Users earn XP through participation and progress through different levels.
 
 ---
 
-## 👩‍💻 Author
+### 🔔 Notifications
 
-**Trisha D M**
-
-GitHub: https://github.com/trishadm
+Receive notifications for relevant account activity and skill-exchange interactions.
 
 ---
 
-## 📄 License
+### 🌓 Light & Dark Mode
 
-This project is licensed under the MIT License.
+SideQuest provides both light and dark themes while maintaining the same overall visual identity.
+
+---
+
+## 🔄 How SideQuest Works
+
+```text
+Create Profile
+      ↓
+Add Skills You Can Teach
+      ↓
+Add Skills You Want to Learn
+      ↓
+Discover Compatible Users
+      ↓
+View Their Skills
+      ↓
+Send Skill Swap Request
+      ↓
+Accept the Exchange
+      ↓
+Chat & Schedule Sessions
+      ↓
+Teach + Learn
+      ↓
+Review & Earn XP
