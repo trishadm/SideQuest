@@ -44,19 +44,19 @@ export default function SignupPage() {
 
   return (
     <div className="min-h-[90vh] flex items-center justify-center p-4 my-6">
-      <div className="glass-panel max-w-lg w-full rounded-3xl p-8 border border-slate-800 shadow-2xl relative">
+      <div className="glass-panel max-w-lg w-full rounded-3xl p-8 border border-[#DFC3E3] dark:border-[#2D3148] shadow-2xl relative bg-white dark:bg-[#181B29]">
 
         {/* Header */}
         <div className="text-center mb-6">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-600 via-violet-500 to-cyan-400 mx-auto flex items-center justify-center shadow-glow mb-3">
+          <div className="w-14 h-14 rounded-2xl bg-[#7CA1D9] mx-auto flex items-center justify-center shadow-sm mb-3">
             <Sparkles className="w-7 h-7 text-white" />
           </div>
-          <h2 className="heading-font text-2xl font-extrabold text-white">Join SideQuest</h2>
-          <p className="text-xs text-slate-400 mt-1">Start exchanging skills with peers around the world</p>
+          <h2 className="heading-font text-2xl font-extrabold text-slate-900 dark:text-white">Join SideQuest</h2>
+          <p className="text-xs text-slate-600 dark:text-[#D7C8E9] mt-1">Start exchanging skills with peers around the world</p>
         </div>
 
         {error && (
-          <div className="mb-4 p-3.5 rounded-xl bg-rose-950/70 border border-rose-500/40 text-xs text-rose-300">
+          <div className="mb-4 p-3.5 rounded-xl bg-[#E7B5D3]/20 border border-[#E7B5D3] text-xs text-slate-900 dark:text-[#E7B5D3]">
             {error}
           </div>
         )}
@@ -64,7 +64,7 @@ export default function SignupPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">
                 Full Name
               </label>
               <input
@@ -72,12 +72,12 @@ export default function SignupPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g. Trisha Sharma"
-                className="w-full glass-input rounded-xl px-3.5 py-2.5 text-xs"
+                className="w-full glass-input rounded-xl px-3.5 py-2.5 text-xs text-slate-900 dark:text-white bg-white dark:bg-[#141724]"
                 required
               />
             </div>
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">
                 Username
               </label>
               <input
@@ -85,14 +85,14 @@ export default function SignupPage() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="e.g. trisha_dev"
-                className="w-full glass-input rounded-xl px-3.5 py-2.5 text-xs"
+                className="w-full glass-input rounded-xl px-3.5 py-2.5 text-xs text-slate-900 dark:text-white bg-white dark:bg-[#141724]"
                 required
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">
               Email Address
             </label>
             <input
@@ -100,13 +100,13 @@ export default function SignupPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="trisha@example.com"
-              className="w-full glass-input rounded-xl px-3.5 py-2.5 text-xs"
+              className="w-full glass-input rounded-xl px-3.5 py-2.5 text-xs text-slate-900 dark:text-white bg-white dark:bg-[#141724]"
               required
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">
               Password
             </label>
             <input
@@ -114,13 +114,13 @@ export default function SignupPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full glass-input rounded-xl px-3.5 py-2.5 text-xs"
+              className="w-full glass-input rounded-xl px-3.5 py-2.5 text-xs text-slate-900 dark:text-white bg-white dark:bg-[#141724]"
               required
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">
               Location / City
             </label>
             <input
@@ -128,12 +128,12 @@ export default function SignupPage() {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="e.g. Bengaluru, India or Remote"
-              className="w-full glass-input rounded-xl px-3.5 py-2.5 text-xs"
+              className="w-full glass-input rounded-xl px-3.5 py-2.5 text-xs text-slate-900 dark:text-white bg-white dark:bg-[#141724]"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">
               Short Bio
             </label>
             <textarea
@@ -141,14 +141,14 @@ export default function SignupPage() {
               value={bio}
               onChange={(e) => setBio(e.target.value)}
               placeholder="Briefly introduce yourself and what skills you love trading!"
-              className="w-full glass-input rounded-xl p-3 text-xs"
+              className="w-full glass-input rounded-xl p-3 text-xs text-slate-900 dark:text-white bg-white dark:bg-[#141724]"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-violet-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-xs font-extrabold text-white shadow-glow flex items-center justify-center gap-2 transition-all mt-2"
+            className="w-full py-3 rounded-xl bg-[#7CA1D9] hover:bg-[#6B90CB] text-xs font-extrabold text-white shadow-sm flex items-center justify-center gap-2 transition-all mt-2"
           >
             {loading ? 'Creating Account...' : (
               <>
@@ -158,9 +158,9 @@ export default function SignupPage() {
           </button>
         </form>
 
-        <p className="text-center text-xs text-slate-400 mt-6">
+        <p className="text-center text-xs text-slate-600 dark:text-[#D7C8E9] mt-6">
           Already have an account?{' '}
-          <Link to="/login" className="text-indigo-400 font-bold hover:underline">
+          <Link to="/login" className="text-[#7CA1D9] font-bold hover:underline">
             Sign In Here
           </Link>
         </p>

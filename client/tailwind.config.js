@@ -8,34 +8,39 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: '#eef2ff',
-          100: '#e0e7ff',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
-          900: '#312e81',
-          accent: '#8b5cf6',
-          cyan: '#06b6d4',
-          emerald: '#10b981'
-        },
-        dark: {
-          bg: '#090d16',
-          card: '#111827',
-          surface: '#1f2937',
-          border: '#374151',
-          muted: '#9ca3af'
+        sq: {
+          primary: '#7CA1D9',         // Primary Blue
+          'primary-hover': '#6B90CB',   // Primary Blue Hover
+          lilac: '#BEC3EA',           // Light Lilac
+          lavender: '#D7C8E9',        // Lavender
+          'soft-purple': '#DFC3E3',     // Soft Purple-Lilac
+          pink: '#E7B5D3',            // Pastel Pink
+          'pink-hover': '#DAA4C4',    // Pastel Pink Hover
+          'pink-var': '#E7B6D4',      // Pastel Pink Variant
+          
+          // Theme defaults
+          'light-bg': '#F4F5FB',
+          'light-card': '#FFFFFF',
+          'light-border': '#DFC3E3',
+          'light-text': '#1E293B',
+          'light-muted': '#5B507A',
+
+          'dark-bg': '#0F111A',
+          'dark-card': '#181B29',
+          'dark-border': '#2D3148',
+          'dark-text': '#F8FAFC',
+          'dark-muted': '#D7C8E9',
         }
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'glow': '0 0 25px -5px rgba(99, 102, 241, 0.4)',
-        'glow-cyan': '0 0 25px -5px rgba(6, 182, 212, 0.4)',
-        'glow-emerald': '0 0 25px -5px rgba(16, 185, 129, 0.4)'
+        'subtle': '0 2px 8px rgba(0, 0, 0, 0.06)',
+        'panel': '0 4px 16px rgba(0, 0, 0, 0.08)',
       }
     },
   },
   plugins: [],
 }
+

@@ -129,7 +129,7 @@ export default function ProfilePage() {
 
   if (loading) {
     return (
-      <div className="text-center py-20 text-xs text-pink-600 font-semibold">
+      <div className="text-center py-20 text-xs text-[#7CA1D9] font-semibold">
         Loading user profile...
       </div>
     );
@@ -137,7 +137,7 @@ export default function ProfilePage() {
 
   if (!profileUser) {
     return (
-      <div className="text-center py-20 text-pink-600 font-semibold">
+      <div className="text-center py-20 text-[#7CA1D9] font-semibold">
         User profile not found.
       </div>
     );
@@ -147,46 +147,46 @@ export default function ProfilePage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       
       {/* Header Banner & User Info */}
-      <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-pink-500/20 relative">
+      <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-[#DFC3E3] dark:border-[#2D3148] relative">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-center gap-5">
             <img
               src={profileUser.avatar}
               alt={profileUser.name}
-              className="w-20 h-20 rounded-3xl object-cover border-2 border-pink-500/40 shadow-glow"
+              className="w-20 h-20 rounded-3xl object-cover border-2 border-[#7CA1D9]"
             />
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="heading-font text-2xl sm:text-3xl font-extrabold text-pink-950">{profileUser.name}</h1>
+                <h1 className="heading-font text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">{profileUser.name}</h1>
                 {profileUser.role === 'admin' && (
-                  <span className="bg-pink-500/20 text-pink-600 border border-pink-500/40 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                  <span className="bg-[#7CA1D9]/20 text-[#7CA1D9] border border-[#7CA1D9]/40 text-[10px] font-bold px-2 py-0.5 rounded-full">
                     Admin
                   </span>
                 )}
               </div>
-              <p className="text-xs text-pink-600 font-bold mt-0.5">@{profileUser.username}</p>
+              <p className="text-xs text-[#7CA1D9] font-bold mt-0.5">@{profileUser.username}</p>
               
-              <div className="flex flex-wrap items-center gap-4 text-xs text-purple-900 font-medium mt-2">
+              <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600 dark:text-[#D7C8E9] font-medium mt-2">
                 <span className="flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-pink-500" /> {profileUser.location}
+                  <MapPin className="w-3.5 h-3.5 text-[#7CA1D9]" /> {profileUser.location}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Globe className="w-3.5 h-3.5 text-pink-500" /> {(profileUser.languages || []).join(', ')}
+                  <Globe className="w-3.5 h-3.5 text-[#7CA1D9]" /> {(profileUser.languages || []).join(', ')}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Calendar className="w-3.5 h-3.5 text-pink-500" /> {(profileUser.availability || []).join(', ')}
+                  <Calendar className="w-3.5 h-3.5 text-[#7CA1D9]" /> {(profileUser.availability || []).join(', ')}
                 </span>
               </div>
             </div>
           </div>
 
           {/* Overall Rating Box */}
-          <div className="glass-panel p-4 rounded-2xl border border-pink-500/30 text-center min-w-[140px]">
-            <div className="flex items-center justify-center gap-1 text-amber-500 font-black text-2xl">
-              <Star className="w-6 h-6 fill-amber-400" />
+          <div className="glass-panel p-4 rounded-2xl border border-[#DFC3E3] dark:border-[#2D3148] text-center min-w-[140px]">
+            <div className="flex items-center justify-center gap-1 text-[#7CA1D9] font-black text-2xl">
+              <Star className="w-6 h-6 fill-current text-[#7CA1D9]" />
               <span>{(profileUser.ratings?.overall || 5.0).toFixed(1)}</span>
             </div>
-            <span className="text-[11px] text-purple-800 font-bold block mt-1">
+            <span className="text-[11px] text-slate-600 dark:text-[#D7C8E9] font-bold block mt-1">
               {profileUser.ratings?.totalReviews || 0} Peer Reviews
             </span>
           </div>
@@ -194,7 +194,7 @@ export default function ProfilePage() {
 
         {/* Bio */}
         {profileUser.bio && (
-          <p className="text-xs text-purple-950 font-medium mt-6 pt-4 border-t border-pink-200/60 leading-relaxed">
+          <p className="text-xs text-slate-700 dark:text-slate-200 font-medium mt-6 pt-4 border-t border-[#DFC3E3] dark:border-[#2D3148] leading-relaxed">
             "{profileUser.bio}"
           </p>
         )}
@@ -207,19 +207,19 @@ export default function ProfilePage() {
         <div className="lg:col-span-2 space-y-8">
           
           {/* TEACHING SKILLS SECTION */}
-          <div className="glass-panel rounded-3xl p-6 border border-pink-500/20">
+          <div className="glass-panel rounded-3xl p-6 border border-[#DFC3E3] dark:border-[#2D3148]">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="font-extrabold text-base text-pink-950 flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-pink-600" /> Skills {profileUser.name.split(' ')[0]} Teaches
+                <h3 className="font-extrabold text-base text-slate-900 dark:text-white flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-[#7CA1D9]" /> Skills {profileUser.name.split(' ')[0]} Teaches
                 </h3>
-                <p className="text-xs text-purple-800">Knowledge offered with verification proofs & levels.</p>
+                <p className="text-xs text-slate-600 dark:text-[#D7C8E9]">Knowledge offered with verification proofs & levels.</p>
               </div>
 
               {isOwnProfile && (
                 <button
                   onClick={() => setShowTeachModal(true)}
-                  className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-md transition-all"
+                  className="px-3.5 py-1.5 rounded-xl bg-[#7CA1D9] hover:bg-[#6B90CB] text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all"
                 >
                   <Plus className="w-4 h-4" /> Add Teaching Skill
                 </button>
@@ -243,25 +243,25 @@ export default function ProfilePage() {
                   </div>
                 ))
               ) : (
-                <p className="text-xs text-purple-700 italic col-span-2 py-4">No teaching skills added yet.</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 italic col-span-2 py-4">No teaching skills added yet.</p>
               )}
             </div>
           </div>
 
           {/* LEARNING SKILLS SECTION */}
-          <div className="glass-panel rounded-3xl p-6 border border-pink-500/20">
+          <div className="glass-panel rounded-3xl p-6 border border-[#DFC3E3] dark:border-[#2D3148]">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="font-extrabold text-base text-pink-950 flex items-center gap-2">
-                  <BookOpen className="w-5 h-5 text-purple-600" /> Skills {profileUser.name.split(' ')[0]} Wants To Learn
+                <h3 className="font-extrabold text-base text-slate-900 dark:text-white flex items-center gap-2">
+                  <BookOpen className="w-5 h-5 text-[#E7B5D3]" /> Skills {profileUser.name.split(' ')[0]} Wants To Learn
                 </h3>
-                <p className="text-xs text-purple-800">Target learning goals & priorities.</p>
+                <p className="text-xs text-slate-600 dark:text-[#D7C8E9]">Target learning goals & priorities.</p>
               </div>
 
               {isOwnProfile && (
                 <button
                   onClick={() => setShowLearnModal(true)}
-                  className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-md transition-all"
+                  className="px-3.5 py-1.5 rounded-xl bg-[#7CA1D9] hover:bg-[#6B90CB] text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all"
                 >
                   <Plus className="w-4 h-4" /> Add Learning Goal
                 </button>
@@ -285,36 +285,36 @@ export default function ProfilePage() {
                   </div>
                 ))
               ) : (
-                <p className="text-xs text-purple-700 italic col-span-2 py-4">No learning goals added yet.</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 italic col-span-2 py-4">No learning goals added yet.</p>
               )}
             </div>
           </div>
 
           {/* REVIEWS SECTION */}
-          <div className="glass-panel rounded-3xl p-6 border border-pink-500/20">
-            <h3 className="font-extrabold text-base text-pink-950 mb-4 flex items-center gap-2">
-              <Star className="w-5 h-5 text-amber-500 fill-amber-400" /> Peer Reviews ({reviews.length})
+          <div className="glass-panel rounded-3xl p-6 border border-[#DFC3E3] dark:border-[#2D3148]">
+            <h3 className="font-extrabold text-base text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+              <Star className="w-5 h-5 text-[#7CA1D9] fill-current" /> Peer Reviews ({reviews.length})
             </h3>
 
             <div className="space-y-4">
               {reviews.length > 0 ? (
                 reviews.map((rev) => (
-                  <div key={rev._id} className="p-4 rounded-2xl glass-panel border border-pink-200/60 text-xs">
+                  <div key={rev._id} className="p-4 rounded-2xl glass-panel border border-[#DFC3E3] dark:border-[#2D3148] text-xs">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2.5">
-                        <img src={rev.reviewer?.avatar} className="w-8 h-8 rounded-xl object-cover border border-purple-200" alt="" />
+                        <img src={rev.reviewer?.avatar} className="w-8 h-8 rounded-xl object-cover border border-[#7CA1D9]" alt="" />
                         <div>
-                          <span className="font-bold text-pink-950 block">{rev.reviewer?.name}</span>
-                          <span className="text-[10px] text-purple-700">{new Date(rev.createdAt).toLocaleDateString()}</span>
+                          <span className="font-bold text-slate-900 dark:text-white block">{rev.reviewer?.name}</span>
+                          <span className="text-[10px] text-slate-500 dark:text-[#D7C8E9]">{new Date(rev.createdAt).toLocaleDateString()}</span>
                         </div>
                       </div>
-                      <span className="font-bold text-amber-500 text-sm">{rev.overall}★ Overall</span>
+                      <span className="font-bold text-[#7CA1D9] text-sm">{rev.overall}★ Overall</span>
                     </div>
-                    <p className="text-purple-900 italic">"{rev.comment}"</p>
+                    <p className="text-slate-700 dark:text-slate-200 italic">"{rev.comment}"</p>
                   </div>
                 ))
               ) : (
-                <p className="text-xs text-purple-700 italic">No written reviews yet.</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 italic">No written reviews yet.</p>
               )}
             </div>
           </div>
@@ -326,30 +326,30 @@ export default function ProfilePage() {
           <XPBar user={profileUser} />
 
           {/* Multi-Criteria Ratings Breakdown */}
-          <div className="glass-panel p-5 rounded-3xl border border-pink-500/20 space-y-2 text-xs">
-            <h4 className="font-extrabold text-sm text-pink-950 mb-3 flex items-center gap-2">
-              <Award className="w-4 h-4 text-amber-500" /> Rating Breakdown
+          <div className="glass-panel p-5 rounded-3xl border border-[#DFC3E3] dark:border-[#2D3148] space-y-2 text-xs">
+            <h4 className="font-extrabold text-sm text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+              <Award className="w-4 h-4 text-[#7CA1D9]" /> Rating Breakdown
             </h4>
 
-            <div className="flex justify-between py-1 border-b border-pink-200/40">
-              <span className="text-purple-800 font-medium">Teaching Quality</span>
-              <span className="font-bold text-amber-500">{(profileUser.ratings?.teachingQuality || 5.0).toFixed(1)}★</span>
+            <div className="flex justify-between py-1 border-b border-[#DFC3E3]/60 dark:border-[#2D3148]">
+              <span className="text-slate-600 dark:text-[#D7C8E9] font-medium">Teaching Quality</span>
+              <span className="font-bold text-[#7CA1D9]">{(profileUser.ratings?.teachingQuality || 5.0).toFixed(1)}★</span>
             </div>
-            <div className="flex justify-between py-1 border-b border-pink-200/40">
-              <span className="text-purple-800 font-medium">Communication</span>
-              <span className="font-bold text-amber-500">{(profileUser.ratings?.communication || 5.0).toFixed(1)}★</span>
+            <div className="flex justify-between py-1 border-b border-[#DFC3E3]/60 dark:border-[#2D3148]">
+              <span className="text-slate-600 dark:text-[#D7C8E9] font-medium">Communication</span>
+              <span className="font-bold text-[#7CA1D9]">{(profileUser.ratings?.communication || 5.0).toFixed(1)}★</span>
             </div>
-            <div className="flex justify-between py-1 border-b border-pink-200/40">
-              <span className="text-purple-800 font-medium">Knowledge Depth</span>
-              <span className="font-bold text-amber-500">{(profileUser.ratings?.knowledge || 5.0).toFixed(1)}★</span>
+            <div className="flex justify-between py-1 border-b border-[#DFC3E3]/60 dark:border-[#2D3148]">
+              <span className="text-slate-600 dark:text-[#D7C8E9] font-medium">Knowledge Depth</span>
+              <span className="font-bold text-[#7CA1D9]">{(profileUser.ratings?.knowledge || 5.0).toFixed(1)}★</span>
             </div>
-            <div className="flex justify-between py-1 border-b border-pink-200/40">
-              <span className="text-purple-800 font-medium">Friendliness & Patience</span>
-              <span className="font-bold text-amber-500">{(profileUser.ratings?.friendliness || 5.0).toFixed(1)}★</span>
+            <div className="flex justify-between py-1 border-b border-[#DFC3E3]/60 dark:border-[#2D3148]">
+              <span className="text-slate-600 dark:text-[#D7C8E9] font-medium">Friendliness & Patience</span>
+              <span className="font-bold text-[#7CA1D9]">{(profileUser.ratings?.friendliness || 5.0).toFixed(1)}★</span>
             </div>
             <div className="flex justify-between py-1">
-              <span className="text-purple-800 font-medium">Punctuality</span>
-              <span className="font-bold text-amber-500">{(profileUser.ratings?.punctuality || 5.0).toFixed(1)}★</span>
+              <span className="text-slate-600 dark:text-[#D7C8E9] font-medium">Punctuality</span>
+              <span className="font-bold text-[#7CA1D9]">{(profileUser.ratings?.punctuality || 5.0).toFixed(1)}★</span>
             </div>
           </div>
         </div>
@@ -358,12 +358,12 @@ export default function ProfilePage() {
 
       {/* Add Teaching Skill Modal */}
       {showTeachModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-md">
-          <div className="glass-panel rounded-3xl max-w-md w-full p-6 border border-pink-200 shadow-2xl">
-            <h3 className="font-extrabold text-base text-pink-950 mb-4">Add Skill to Teach</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="glass-panel rounded-3xl max-w-md w-full p-6 border border-[#DFC3E3] dark:border-[#2D3148] shadow-2xl bg-white dark:bg-[#181B29]">
+            <h3 className="font-extrabold text-base text-slate-900 dark:text-white mb-4">Add Skill to Teach</h3>
             <form onSubmit={handleAddTeachSkill} className="space-y-3">
               <div>
-                <label className="block text-xs font-bold text-pink-900 mb-1">Skill Name</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">Skill Name</label>
                 <input
                   type="text"
                   value={teachName}
@@ -376,11 +376,11 @@ export default function ProfilePage() {
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-xs font-bold text-pink-900 mb-1">Category</label>
+                  <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">Category</label>
                   <select
                     value={teachCategory}
                     onChange={(e) => setTeachCategory(e.target.value)}
-                    className="w-full glass-input rounded-xl px-2 py-2 text-xs"
+                    className="w-full glass-input rounded-xl px-2 py-2 text-xs bg-white dark:bg-[#141724] text-slate-900 dark:text-white"
                   >
                     <option value="Programming & Tech">Tech</option>
                     <option value="Music & Audio">Music</option>
@@ -390,11 +390,11 @@ export default function ProfilePage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-pink-900 mb-1">Skill Level (1-5)</label>
+                  <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">Skill Level (1-5)</label>
                   <select
                     value={teachLevel}
                     onChange={(e) => setTeachLevel(e.target.value)}
-                    className="w-full glass-input rounded-xl px-2 py-2 text-xs"
+                    className="w-full glass-input rounded-xl px-2 py-2 text-xs bg-white dark:bg-[#141724] text-slate-900 dark:text-white"
                   >
                     <option value="1">1 - Novice</option>
                     <option value="2">2 - Beginner</option>
@@ -406,7 +406,7 @@ export default function ProfilePage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-pink-900 mb-1">Proof URL (GitHub, Portfolio, LinkedIn)</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">Proof URL (GitHub, Portfolio, LinkedIn)</label>
                 <input
                   type="url"
                   value={proofUrl}
@@ -420,13 +420,13 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={() => setShowTeachModal(false)}
-                  className="flex-1 py-2 rounded-xl border border-pink-200 text-xs font-bold text-pink-700 hover:bg-pink-50"
+                  className="flex-1 py-2 rounded-xl border border-[#DFC3E3] dark:border-[#2D3148] text-xs font-bold text-slate-700 dark:text-[#D7C8E9] hover:bg-slate-100 dark:hover:bg-[#212538]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-xs font-bold text-white shadow-md"
+                  className="flex-1 py-2 rounded-xl bg-[#7CA1D9] hover:bg-[#6B90CB] text-xs font-bold text-white shadow-sm"
                 >
                   Save Skill
                 </button>
@@ -438,12 +438,12 @@ export default function ProfilePage() {
 
       {/* Add Learning Skill Modal */}
       {showLearnModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-md">
-          <div className="glass-panel rounded-3xl max-w-md w-full p-6 border border-pink-200 shadow-2xl">
-            <h3 className="font-extrabold text-base text-pink-950 mb-4">Add Skill to Learn</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="glass-panel rounded-3xl max-w-md w-full p-6 border border-[#DFC3E3] dark:border-[#2D3148] shadow-2xl bg-white dark:bg-[#181B29]">
+            <h3 className="font-extrabold text-base text-slate-900 dark:text-white mb-4">Add Skill to Learn</h3>
             <form onSubmit={handleAddLearnSkill} className="space-y-3">
               <div>
-                <label className="block text-xs font-bold text-pink-900 mb-1">Skill Name</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">Skill Name</label>
                 <input
                   type="text"
                   value={learnName}
@@ -456,11 +456,11 @@ export default function ProfilePage() {
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-xs font-bold text-pink-900 mb-1">Goal</label>
+                  <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">Goal</label>
                   <select
                     value={goal}
                     onChange={(e) => setGoal(e.target.value)}
-                    className="w-full glass-input rounded-xl px-2 py-2 text-xs"
+                    className="w-full glass-input rounded-xl px-2 py-2 text-xs bg-white dark:bg-[#141724] text-slate-900 dark:text-white"
                   >
                     <option value="Career">Career</option>
                     <option value="Interview">Interview</option>
@@ -470,11 +470,11 @@ export default function ProfilePage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-pink-900 mb-1">Priority</label>
+                  <label className="block text-xs font-bold text-slate-700 dark:text-[#D7C8E9] mb-1">Priority</label>
                   <select
                     value={priority}
                     onChange={(e) => setPriority(e.target.value)}
-                    className="w-full glass-input rounded-xl px-2 py-2 text-xs"
+                    className="w-full glass-input rounded-xl px-2 py-2 text-xs bg-white dark:bg-[#141724] text-slate-900 dark:text-white"
                   >
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
@@ -487,13 +487,13 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={() => setShowLearnModal(false)}
-                  className="flex-1 py-2 rounded-xl border border-pink-200 text-xs font-bold text-pink-700 hover:bg-pink-50"
+                  className="flex-1 py-2 rounded-xl border border-[#DFC3E3] dark:border-[#2D3148] text-xs font-bold text-slate-700 dark:text-[#D7C8E9] hover:bg-slate-100 dark:hover:bg-[#212538]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 text-xs font-bold text-white shadow-md"
+                  className="flex-1 py-2 rounded-xl bg-[#7CA1D9] hover:bg-[#6B90CB] text-xs font-bold text-white shadow-sm"
                 >
                   Save Learning Goal
                 </button>

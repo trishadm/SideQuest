@@ -53,14 +53,22 @@ const connectDB = async () => {
       const fs = require('fs');
 
       const instanceDbPath = path.join(__dirname, '../.mongo_cache/db_instance');
-      if (!fs.existsSync(instanceDbPath)) {
-        fs.mkdirSync(instanceDbPath, { recursive: true });
+      if (fs.existsSync(instanceDbPath)) {
+        try {
+          fs.rmSync(instanceDbPath, { recursive: true, force: true });
+        } catch (e) {}
       }
+      fs.mkdirSync(instanceDbPath, { recursive: true });
 
       if (!global.__MONGO_SERVER__) {
-        global.__MONGO_SERVER__ = await MongoMemoryServer.create({
-          instance: { dbPath: instanceDbPath }
-        });
+        try {
+          global.__MONGO_SERVER__ = await MongoMemoryServer.create({
+            instance: { dbPath: instanceDbPath }
+          });
+        } catch (err) {
+          console.warn(`⚠️ Clean instance path start failed, retrying in-memory: ${err.message}`);
+          global.__MONGO_SERVER__ = await MongoMemoryServer.create();
+        }
       }
 
       const fallbackUri = global.__MONGO_SERVER__.getUri();

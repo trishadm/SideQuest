@@ -68,38 +68,38 @@ export default function MatchDiscoveryPage() {
 
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 glass-panel border border-emerald-500/40 bg-emerald-950/80 px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2 text-xs font-bold text-emerald-200 animate-bounce">
-          <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+        <div className="fixed top-20 right-6 z-50 glass-panel border border-[#7CA1D9] bg-white dark:bg-[#181B29] px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white animate-bounce">
+          <CheckCircle2 className="w-4 h-4 text-[#7CA1D9]" />
           <span>{toastMessage}</span>
         </div>
       )}
 
       {/* Header */}
       <div>
-        <h1 className="heading-font text-3xl font-black text-white flex items-center gap-2.5">
-          <Sparkles className="w-7 h-7 text-cyan-400" /> Smart Match Discovery
+        <h1 className="heading-font text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2.5">
+          <Sparkles className="w-7 h-7 text-[#7CA1D9]" /> Smart Match Discovery
         </h1>
-        <p className="text-xs text-slate-300 mt-1">
+        <p className="text-xs text-slate-600 dark:text-[#D7C8E9] mt-1">
           Explore candidates ranked by 6-tier weighted compatibility percentage.
         </p>
       </div>
 
       {/* Search & Filter Bar */}
-      <div className="glass-panel p-5 rounded-3xl border border-slate-800">
+      <div className="glass-panel p-5 rounded-3xl border border-[#DFC3E3] dark:border-[#2D3148]">
         <form onSubmit={handleSearchSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
 
           {/* Category Filter */}
           <div>
-            <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+            <label className="block text-[11px] font-bold text-slate-600 dark:text-[#D7C8E9] uppercase tracking-wider mb-1">
               Skill Category
             </label>
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full glass-input rounded-xl px-3 py-2 text-xs text-white"
+              className="w-full glass-input rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white bg-white dark:bg-[#141724]"
             >
               {categories.map((cat) => (
-                <option key={cat} value={cat} className="bg-slate-900 text-white">
+                <option key={cat} value={cat} className="bg-white dark:bg-[#141724] text-slate-900 dark:text-white">
                   {cat}
                 </option>
               ))}
@@ -108,24 +108,24 @@ export default function MatchDiscoveryPage() {
 
           {/* Mode Filter */}
           <div>
-            <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+            <label className="block text-[11px] font-bold text-slate-600 dark:text-[#D7C8E9] uppercase tracking-wider mb-1">
               Teaching Mode
             </label>
             <select
               value={teachingMode}
               onChange={(e) => setTeachingMode(e.target.value)}
-              className="w-full glass-input rounded-xl px-3 py-2 text-xs text-white"
+              className="w-full glass-input rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white bg-white dark:bg-[#141724]"
             >
-              <option value="All" className="bg-slate-900">All Modes</option>
-              <option value="Online" className="bg-slate-900">Online Only</option>
-              <option value="Offline" className="bg-slate-900">Offline / In-Person</option>
-              <option value="Both" className="bg-slate-900">Both</option>
+              <option value="All" className="bg-white dark:bg-[#141724]">All Modes</option>
+              <option value="Online" className="bg-white dark:bg-[#141724]">Online Only</option>
+              <option value="Offline" className="bg-white dark:bg-[#141724]">Offline / In-Person</option>
+              <option value="Both" className="bg-white dark:bg-[#141724]">Both</option>
             </select>
           </div>
 
           {/* Location Input */}
           <div>
-            <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+            <label className="block text-[11px] font-bold text-slate-600 dark:text-[#D7C8E9] uppercase tracking-wider mb-1">
               City / Location
             </label>
             <input
@@ -139,7 +139,7 @@ export default function MatchDiscoveryPage() {
 
           {/* Language Input */}
           <div>
-            <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+            <label className="block text-[11px] font-bold text-slate-600 dark:text-[#D7C8E9] uppercase tracking-wider mb-1">
               Spoken Language
             </label>
             <input
@@ -155,7 +155,7 @@ export default function MatchDiscoveryPage() {
           <div className="flex items-end gap-2">
             <button
               type="submit"
-              className="w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-md transition-colors"
+              className="w-full py-2.5 px-4 rounded-xl bg-[#7CA1D9] hover:bg-[#6B90CB] text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-sm transition-colors"
             >
               <Search className="w-4 h-4" /> Filter Matches
             </button>
@@ -167,8 +167,8 @@ export default function MatchDiscoveryPage() {
       {/* Matches Feed Grid */}
       {loading ? (
         <div className="text-center py-16">
-          <RefreshCw className="w-8 h-8 text-indigo-400 animate-spin mx-auto mb-2" />
-          <p className="text-xs text-slate-400">Calculating compatibility scores...</p>
+          <RefreshCw className="w-8 h-8 text-[#7CA1D9] animate-spin mx-auto mb-2" />
+          <p className="text-xs text-slate-600 dark:text-[#D7C8E9]">Calculating compatibility scores...</p>
         </div>
       ) : matches.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -181,10 +181,10 @@ export default function MatchDiscoveryPage() {
           ))}
         </div>
       ) : (
-        <div className="glass-panel p-12 rounded-3xl text-center border border-slate-800 max-w-lg mx-auto">
-          <Sparkles className="w-12 h-12 text-slate-500 mx-auto mb-3 opacity-60" />
-          <h3 className="font-extrabold text-base text-white">No Matches Found for these Filters</h3>
-          <p className="text-xs text-slate-400 mt-1">Try broadening your search filters or resetting location criteria.</p>
+        <div className="glass-panel p-12 rounded-3xl text-center border border-[#DFC3E3] dark:border-[#2D3148] max-w-lg mx-auto">
+          <Sparkles className="w-12 h-12 text-[#7CA1D9] mx-auto mb-3 opacity-60" />
+          <h3 className="font-extrabold text-base text-slate-900 dark:text-white">No Matches Found for these Filters</h3>
+          <p className="text-xs text-slate-600 dark:text-[#D7C8E9] mt-1">Try broadening your search filters or resetting location criteria.</p>
           <button
             onClick={() => {
               setCategory('All');
@@ -193,7 +193,7 @@ export default function MatchDiscoveryPage() {
               setLanguage('');
               setMinRating('0');
             }}
-            className="mt-4 px-4 py-2 rounded-xl bg-slate-800 text-indigo-400 text-xs font-bold hover:bg-slate-700 transition-colors"
+            className="mt-4 px-4 py-2 rounded-xl bg-slate-200 dark:bg-[#141724] text-[#7CA1D9] text-xs font-bold hover:bg-slate-300 dark:hover:bg-[#212538] transition-colors"
           >
             Reset Filters
           </button>

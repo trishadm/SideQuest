@@ -66,28 +66,28 @@ export default function DashboardPage() {
 
       {/* Notification Toast */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 glass-panel border border-emerald-500/40 bg-emerald-950/80 px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2 text-xs font-bold text-emerald-200 animate-bounce">
-          <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+        <div className="fixed top-20 right-6 z-50 glass-panel border border-[#7CA1D9] bg-white dark:bg-[#181B29] px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white animate-bounce">
+          <CheckCircle2 className="w-4 h-4 text-[#7CA1D9]" />
           <span>{toastMessage}</span>
         </div>
       )}
 
       {/* Hero Welcome Row */}
-      <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-indigo-500/20 relative overflow-hidden">
+      <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-[#DFC3E3] dark:border-[#2D3148] relative overflow-hidden">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
           <div>
             <div className="flex items-center gap-3">
               <img
                 src={user.avatar}
                 alt={user.name}
-                className="w-16 h-16 rounded-2xl object-cover border-2 border-indigo-500/40 shadow-glow"
+                className="w-16 h-16 rounded-2xl object-cover border-2 border-[#7CA1D9]"
               />
               <div>
-                <h1 className="heading-font text-2xl sm:text-3xl font-black text-white flex items-center gap-2">
-                  Welcome back, {user.name}! <Sparkles className="w-5 h-5 text-amber-400" />
+                <h1 className="heading-font text-2xl sm:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+                  Welcome back, {user.name}! <Sparkles className="w-5 h-5 text-[#7CA1D9]" />
                 </h1>
-                <p className="text-xs text-slate-300 mt-1">
-                  Ready to teach <strong className="text-emerald-400">{user.teachingSkills?.[0]?.name || 'your skills'}</strong> and learn something new today?
+                <p className="text-xs text-slate-600 dark:text-[#D7C8E9] mt-1">
+                  Ready to teach <strong className="text-[#7CA1D9]">{user.teachingSkills?.[0]?.name || 'your skills'}</strong> and learn something new today?
                 </p>
               </div>
             </div>
@@ -97,13 +97,13 @@ export default function DashboardPage() {
           <div className="flex flex-wrap items-center gap-3">
             <Link
               to="/discover"
-              className="px-5 py-3 rounded-2xl bg-gradient-to-r from-indigo-600 via-violet-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white font-extrabold text-xs shadow-glow flex items-center gap-2 transition-all hover:scale-105"
+              className="px-5 py-3 rounded-2xl bg-[#7CA1D9] hover:bg-[#6B90CB] text-white font-extrabold text-xs shadow-sm flex items-center gap-2 transition-all hover:scale-105"
             >
-              <Sparkles className="w-4 h-4" /> Find Skill Matches
+              <Sparkles className="w-4 h-4 text-white" /> Find Skill Matches
             </Link>
             <Link
               to={`/profile/${user.username}`}
-              className="px-5 py-3 rounded-2xl glass-panel border border-slate-700 hover:border-indigo-500/40 text-slate-200 font-bold text-xs transition-colors"
+              className="px-5 py-3 rounded-2xl glass-panel border border-[#DFC3E3] dark:border-[#2D3148] hover:border-[#7CA1D9] text-slate-800 dark:text-slate-200 font-bold text-xs transition-colors"
             >
               + Add / Edit Skills
             </Link>
@@ -111,44 +111,44 @@ export default function DashboardPage() {
         </div>
 
         {/* Quick Stats Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-6 border-t border-slate-800/80">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-6 border-t border-[#DFC3E3] dark:border-[#2D3148]">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center">
-              <ArrowLeftRight className="w-5 h-5 text-indigo-400" />
+            <div className="w-10 h-10 rounded-xl bg-[#7CA1D9]/20 border border-[#7CA1D9]/30 flex items-center justify-center">
+              <ArrowLeftRight className="w-5 h-5 text-[#7CA1D9]" />
             </div>
             <div>
-              <span className="block text-lg font-black text-white">{user.completedSwapsCount || 0}</span>
-              <span className="text-[11px] text-slate-400 font-medium">Completed Swaps</span>
+              <span className="block text-lg font-black text-slate-900 dark:text-white">{user.completedSwapsCount || 0}</span>
+              <span className="text-[11px] text-slate-600 dark:text-[#D7C8E9] font-medium">Completed Swaps</span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
-              <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
+            <div className="w-10 h-10 rounded-xl bg-[#BEC3EA]/30 border border-[#BEC3EA]/50 flex items-center justify-center">
+              <Star className="w-5 h-5 text-slate-800 dark:text-[#BEC3EA] fill-current" />
             </div>
             <div>
-              <span className="block text-lg font-black text-white">{(user.ratings?.overall || 5.0).toFixed(1)}★</span>
-              <span className="text-[11px] text-slate-400 font-medium">Peer Rating</span>
+              <span className="block text-lg font-black text-slate-900 dark:text-white">{(user.ratings?.overall || 5.0).toFixed(1)}★</span>
+              <span className="text-[11px] text-slate-600 dark:text-[#D7C8E9] font-medium">Peer Rating</span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center">
-              <Award className="w-5 h-5 text-cyan-400" />
+            <div className="w-10 h-10 rounded-xl bg-[#D7C8E9]/30 border border-[#D7C8E9]/50 flex items-center justify-center">
+              <Award className="w-5 h-5 text-slate-800 dark:text-[#D7C8E9]" />
             </div>
             <div>
-              <span className="block text-lg font-black text-white">Lvl {user.level || 1}</span>
-              <span className="text-[11px] text-slate-400 font-medium">{user.xp || 0} Total XP</span>
+              <span className="block text-lg font-black text-slate-900 dark:text-white">Lvl {user.level || 1}</span>
+              <span className="text-[11px] text-slate-600 dark:text-[#D7C8E9] font-medium">{user.xp || 0} Total XP</span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-emerald-400" />
+            <div className="w-10 h-10 rounded-xl bg-[#E7B5D3]/30 border border-[#E7B5D3]/50 flex items-center justify-center">
+              <BookOpen className="w-5 h-5 text-slate-800 dark:text-[#E7B5D3]" />
             </div>
             <div>
-              <span className="block text-lg font-black text-white">{activeSessions.length} Active</span>
-              <span className="text-[11px] text-slate-400 font-medium">Learning Plans</span>
+              <span className="block text-lg font-black text-slate-900 dark:text-white">{activeSessions.length} Active</span>
+              <span className="text-[11px] text-slate-600 dark:text-[#D7C8E9] font-medium">Learning Plans</span>
             </div>
           </div>
         </div>
@@ -163,12 +163,12 @@ export default function DashboardPage() {
 
           {/* Active Learning Plans Preview */}
           {activeSessions.length > 0 && (
-            <div className="glass-panel rounded-3xl p-6 border border-slate-800">
+            <div className="glass-panel rounded-3xl p-6 border border-[#DFC3E3] dark:border-[#2D3148]">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-extrabold text-base text-white flex items-center gap-2">
-                  <BookOpen className="w-5 h-5 text-emerald-400" /> Active Session Learning Tracker
+                <h3 className="font-extrabold text-base text-slate-900 dark:text-white flex items-center gap-2">
+                  <BookOpen className="w-5 h-5 text-[#7CA1D9]" /> Active Session Learning Tracker
                 </h3>
-                <Link to="/sessions" className="text-xs font-bold text-indigo-400 hover:underline flex items-center gap-1">
+                <Link to="/sessions" className="text-xs font-bold text-[#7CA1D9] hover:underline flex items-center gap-1">
                   View Tracker →
                 </Link>
               </div>
@@ -178,21 +178,21 @@ export default function DashboardPage() {
                   const partner = plan.userA?._id === user._id ? plan.userB : plan.userA;
                   const progress = Math.round((plan.completedSessionsCount / plan.totalSessions) * 100);
                   return (
-                    <div key={plan._id} className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-between gap-4">
+                    <div key={plan._id} className="p-4 rounded-2xl bg-slate-50 dark:bg-[#141724] border border-[#DFC3E3] dark:border-[#2D3148] flex items-center justify-between gap-4">
                       <div className="flex items-center gap-3">
-                        <img src={partner?.avatar} className="w-10 h-10 rounded-xl object-cover" alt="" />
+                        <img src={partner?.avatar} className="w-10 h-10 rounded-xl object-cover border border-[#7CA1D9]" alt="" />
                         <div>
-                          <h4 className="font-bold text-sm text-white">
+                          <h4 className="font-bold text-sm text-slate-900 dark:text-white">
                             Swapping {plan.skillA} ➔ {plan.skillB}
                           </h4>
-                          <span className="text-xs text-slate-400">With {partner?.name}</span>
+                          <span className="text-xs text-slate-600 dark:text-[#D7C8E9]">With {partner?.name}</span>
                         </div>
                       </div>
 
                       <div className="text-right">
-                        <span className="text-xs font-bold text-emerald-400">{plan.completedSessionsCount}/{plan.totalSessions} Sessions Done ({progress}%)</span>
-                        <div className="w-32 bg-slate-800 rounded-full h-2 mt-1 border border-slate-700 overflow-hidden">
-                          <div className="bg-emerald-400 h-full rounded-full" style={{ width: `${progress}%` }} />
+                        <span className="text-xs font-bold text-[#7CA1D9]">{plan.completedSessionsCount}/{plan.totalSessions} Sessions Done ({progress}%)</span>
+                        <div className="w-32 bg-slate-200 dark:bg-[#181B29] rounded-full h-2 mt-1 border border-[#DFC3E3] dark:border-[#2D3148] overflow-hidden">
+                          <div className="bg-[#7CA1D9] h-full rounded-full" style={{ width: `${progress}%` }} />
                         </div>
                       </div>
                     </div>
@@ -206,12 +206,12 @@ export default function DashboardPage() {
           <div>
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="font-extrabold text-lg text-white flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-cyan-400" /> Top Smart Matches For You
+                <h3 className="font-extrabold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-[#7CA1D9]" /> Top Smart Matches For You
                 </h3>
-                <p className="text-xs text-slate-400">Calculated by skill compatibility, level & schedule match.</p>
+                <p className="text-xs text-slate-600 dark:text-[#D7C8E9]">Calculated by skill compatibility, level & schedule match.</p>
               </div>
-              <Link to="/discover" className="text-xs font-bold text-indigo-400 hover:underline flex items-center gap-1">
+              <Link to="/discover" className="text-xs font-bold text-[#7CA1D9] hover:underline flex items-center gap-1">
                 Explore All Matches →
               </Link>
             </div>
@@ -226,13 +226,13 @@ export default function DashboardPage() {
                   />
                 ))
               ) : (
-                <div className="col-span-2 glass-panel p-8 rounded-3xl text-center border border-slate-800">
-                  <Sparkles className="w-10 h-10 text-indigo-400 mx-auto mb-3 opacity-60" />
-                  <h4 className="font-bold text-slate-200 text-sm">Finding Compatibility Matches...</h4>
-                  <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
+                <div className="col-span-2 glass-panel p-8 rounded-3xl text-center border border-[#DFC3E3] dark:border-[#2D3148]">
+                  <Sparkles className="w-10 h-10 text-[#7CA1D9] mx-auto mb-3 opacity-60" />
+                  <h4 className="font-bold text-slate-900 dark:text-white text-sm">Finding Compatibility Matches...</h4>
+                  <p className="text-xs text-slate-600 dark:text-[#D7C8E9] mt-1 max-w-sm mx-auto">
                     Add skills you teach and skills you want to learn on your profile to generate instant high-compatibility matches!
                   </p>
-                  <Link to={`/profile/${user.username}`} className="inline-block mt-4 text-xs font-bold text-indigo-400 hover:underline">
+                  <Link to={`/profile/${user.username}`} className="inline-block mt-4 text-xs font-bold text-[#7CA1D9] hover:underline">
                     Edit Your Skills →
                   </Link>
                 </div>
@@ -250,15 +250,15 @@ export default function DashboardPage() {
 
           {/* Pending Swap Requests Alert Box */}
           {pendingSwapsCount > 0 && (
-            <div className="p-5 rounded-2xl bg-indigo-950/40 border border-indigo-500/40 text-xs">
-              <div className="flex items-center gap-2 font-bold text-white mb-1">
-                <ArrowLeftRight className="w-4 h-4 text-indigo-400" />
+            <div className="p-5 rounded-2xl bg-[#BEC3EA]/20 border border-[#DFC3E3] dark:border-[#2D3148] text-xs">
+              <div className="flex items-center gap-2 font-bold text-slate-900 dark:text-white mb-1">
+                <ArrowLeftRight className="w-4 h-4 text-[#7CA1D9]" />
                 <span>You have {pendingSwapsCount} Pending Swap Requests!</span>
               </div>
-              <p className="text-slate-300 mb-3">Review incoming offers to start private chat and learning plans.</p>
+              <p className="text-slate-600 dark:text-[#D7C8E9] mb-3">Review incoming offers to start private chat and learning plans.</p>
               <Link
                 to="/swaps"
-                className="w-full py-2 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center justify-center gap-1 shadow-md transition-colors"
+                className="w-full py-2 px-4 rounded-xl bg-[#7CA1D9] hover:bg-[#6B90CB] text-white font-bold text-xs flex items-center justify-center gap-1 shadow-sm transition-colors"
               >
                 Review Requests Now →
               </Link>
@@ -266,14 +266,14 @@ export default function DashboardPage() {
           )}
 
           {/* Quick Chat Shortcut */}
-          <div className="glass-panel p-5 rounded-2xl border border-slate-800">
-            <h4 className="font-bold text-sm text-white mb-2 flex items-center gap-2">
-              <MessageSquare className="w-4 h-4 text-cyan-400" /> Direct Messages
+          <div className="glass-panel p-5 rounded-2xl border border-[#DFC3E3] dark:border-[#2D3148]">
+            <h4 className="font-bold text-sm text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+              <MessageSquare className="w-4 h-4 text-[#7CA1D9]" /> Direct Messages
             </h4>
-            <p className="text-xs text-slate-400 mb-4">Chat in real-time with accepted skill exchange partners.</p>
+            <p className="text-xs text-slate-600 dark:text-[#D7C8E9] mb-4">Chat in real-time with accepted skill exchange partners.</p>
             <Link
               to="/chat"
-              className="w-full py-2.5 px-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-slate-200 text-xs font-bold flex items-center justify-center gap-2 transition-colors"
+              className="w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-[#141724] border border-[#DFC3E3] dark:border-[#2D3148] hover:border-[#7CA1D9] text-slate-800 dark:text-slate-200 text-xs font-bold flex items-center justify-center gap-2 transition-colors"
             >
               Open Messaging Console
             </Link>
